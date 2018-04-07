@@ -81,6 +81,7 @@ class Url {
             if (obj.hasOwnProperty(key)) {
                 const type = typeof obj[key];
                 if ((type === 'string' || type === 'number' || type === 'boolean')) {
+                    this.removeParameter(key);
                     arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]));
                 }
             }

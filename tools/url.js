@@ -1,6 +1,6 @@
 class Url {
     constructor(url){
-        this.url = url || location.href;
+        this.url = url;
     }
     /**
      * 获取url对应参数值
@@ -16,7 +16,7 @@ class Url {
         } else {
             return null;
         }
-    };
+    }
 
     /**
      * 设置URL参数
@@ -31,7 +31,7 @@ class Url {
         const split = url.indexOf("?") !== -1 ? "&" : "?";
         this.url = url + split + name + "=" + vaule;
         return this;
-    };
+    }
 
     /**
      * search转obj
@@ -47,12 +47,12 @@ class Url {
         }
         //有值
         const obj = {};
-        result.forEach(function (item, index) {
+        result.forEach(function (item) {
             const arr = item.substr(1).split('=');
             obj[decodeURIComponent(arr[0])] = decodeURIComponent(arr[1]);
         });
         return obj;
-    };
+    }
 
     removeParameter(name) {
         name = decodeURIComponent(name);
@@ -70,7 +70,7 @@ class Url {
             });
         }
         return this;
-    };
+    }
 
     /**
      * *obj转search
@@ -91,14 +91,14 @@ class Url {
         this.url = this.url + (this.url.indexOf('?') > -1 ? '&' : '?') + arr.join('&');
 
         return this;
-    };
+    }
 
     /**
      * 获取绝对路径，去掉host
      */
     getPath() {
         return this.url.replace(/http[s]{0,1}:\/\/[^/]*/, '');
-    };
+    }
     getHost(){
         let result=this.url.match(/http[s]{0,1}:\/\/[^/]*/);
         return result?result[0]:result;
@@ -106,6 +106,4 @@ class Url {
 }
 
 
-export default (url)=>{
-    return new Url(url);
-};
+export default Url;

@@ -106,6 +106,4 @@ class Url {
 }
 
 
-export default (url)=>{
-    return new Url(url);
-};
+export default Url;

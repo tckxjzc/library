@@ -1,23 +1,4 @@
 class Count{
-    /**
-     *
-     * @type {number}
-     * @private
-     */
-    _step=1;
-    _min=Number.MIN_VALUE;
-    /**
-     *
-     * @type {number}
-     * @private
-     */
-    _max=Number.MAX_VALUE;
-    /**
-     *
-     * @type {number}
-     * @private
-     */
-    _value=0;
 
     /**
      *
@@ -26,12 +7,33 @@ class Count{
      * @param {number} max
      * @param {number} step
      */
-    constructor(initValue,min,max,step){
-        this._value=initValue||this._value;
-        this._min=min||this._min;
-        this._max=max||this._max;
-        this._step=step||this._step;
+    constructor(initValue=0,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER,step=1){
+        /**
+         *
+         * @type {number}
+         * @private
+         */
+        this._value=initValue;
+        /**
+         *
+         * @type {number}
+         * @private
+         */
+        this._min=min;
+        /**
+         *
+         * @type {number}
+         * @private
+         */
+        this._max=max;
+        /**
+         *
+         * @type {number}
+         * @private
+         */
+        this._step=step;
     }
+
 
     /**
      *

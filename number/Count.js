@@ -26,11 +26,11 @@ class Count{
      * @param {number} max
      * @param {number} step
      */
-    constructor(initValue=this._value,min=this._min,max=this._max,step=this._step){
-        this._value=initValue;
-        this._min=min;
-        this._max=max;
-        this._step=step;
+    constructor(initValue,min,max,step){
+        this._value=initValue||this._value;
+        this._min=min||this._min;
+        this._max=max||this._max;
+        this._step=step||this._step;
     }
 
     /**

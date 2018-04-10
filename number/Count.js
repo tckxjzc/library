@@ -144,3 +144,4 @@ class Count{
     }
 
 }
+export default Count;

@@ -4,6 +4,7 @@ type Props={
 };
 class Bundle extends Component<Props>{
     state={
+        update:false,
         Element:null
     };
     mounted:boolean;
@@ -20,9 +21,22 @@ class Bundle extends Component<Props>{
         this.mounted=true;
         this.load();
     }
+
     componentWillUnmount(){
         this.mounted=false;
     }
+
+    static getDerivedStateFromProps(nextProps, prevState){
+
+        return {update:true};
+    }
+    componentDidUpdate(){
+        if(this.state.update){
+            this.load();
+            this.setState({update:false});
+        }
+    }
+
     render() {
         let {Element}=this.state;
         return Element?<Element/>:null;

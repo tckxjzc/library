@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Loading from './Loading';
 type Props={
     el:Function
 };
@@ -39,7 +40,7 @@ class Bundle extends Component<Props>{
 
     render() {
         let {Element}=this.state;
-        return Element?<Element/>:null;
+        return Element?<Element/>:<Loading/>;
     }
 }
 
